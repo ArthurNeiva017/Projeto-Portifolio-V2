@@ -1,0 +1,405 @@
+/* ---------- Reset + Base ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+/* Accessible hidden text for icons */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+/* ---------- Header ---------- */
+header {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    border-bottom: 4px solid rgba(255, 255, 255, 0.04);
+    padding: 18px 40px;
+    z-index: 999;
+}
+
+nav ul {
+    display: flex;
+    gap: 36px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    transition: color .25s ease, text-shadow .25s ease;
+}
+
+nav a:hover {
+    color: #ff2b2b;
+    text-shadow: 0 0 8px rgba(255, 43, 43, 0.6);
+}
+
+/* ---------- Home / Hero ---------- */
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 8vw 80px 8vw;
+    min-height: 100vh;
+}
+
+.home-left {
+    max-width: 55%;
+}
+
+.nome {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    color: #ff0000;
+    margin-top: 20px;
+    text-shadow: 0 0 12px rgb(189, 27, 27);
+    margin-bottom: 10px;
+}
+
+.subnome {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    color: #fff;
+    border-right: 3px solid #ffffff;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    padding-right: 6px;
+    margin-bottom: 18px;
+    /* cursor blink handled in JS + CSS blink fallback */
+}
+
+.home-cta {
+    margin-top: 20px;
+    display: flex;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    background: linear-gradient(180deg, rgba(255, 0, 0, 0.12), rgba(255, 0, 0, 0.06));
+    color: #fff;
+    border: 1px solid rgba(255, 0, 0, 0.28);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.12);
+}
+
+.btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Hero image */
+.home-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    width: 460px;
+    max-width: 40vw;
+    border-radius: 88px;
+    margin-bottom: 50px;
+    filter: drop-shadow(0 0px 8px rgba(255, 0, 0));
+    opacity: 0.5;
+    transition: transform .45s ease, opacity .3s ease;
+}
+
+.hero-img:hover {
+    transform: translateY(-6px) scale(1.02);
+    opacity: 1;
+}
+
+/* ---------- Sections common ---------- */
+section {
+    padding: 80px 8vw;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+    color: #ff0000;
+    margin-bottom: 22px;
+    text-shadow: 0 0 8px rgb(209, 20, 20);
+}
+
+/* ---------- Sobre ---------- */
+.sobre-text {
+    max-width: 920px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 0, 0);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 50px;
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.04);
+    text-align: justify;
+}
+
+/* ---------- Projetos (cards grid) ---------- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    margin-top: 28px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.04);
+    transition: transform .28s ease, box-shadow .28s ease;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    color: #ff0000;
+    font-family: 'Orbitron', sans-serif;
+    padding: 14px 16px 0;
+}
+
+.card p {
+    padding: 8px 16px 20px;
+    color: #ddd;
+    font-size: 0.90rem;
+}
+
+/* hover */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(255, 0, 0, 0.10);
+}
+
+/* ---------- Experiência ---------- */
+.exp-grid {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* 👈 alinha os cards à esquerda */
+    margin-left: 0px; /* 👈 leve recuo da borda da tela */
+    margin-top: 18px;
+}
+
+#exp-card1 {
+    width: 360px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+#exp-card1:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgb(0, 255, 128, 0.10);
+}
+
+#exp-card2 {
+    width: 360px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+#exp-card2:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgb(0, 217, 255, 0.10);
+}
+
+.exp-logo {
+    width: 250px;
+    margin-bottom: 14px;
+}
+
+/* tags */
+.exp-tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.exp-tags span {
+    background: rgba(255, 0, 0, 0.08);
+    border: 1px solid rgba(255, 0, 0, 0.12);
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+
+/* ---------- Contato (ícones) ---------- */
+.contato-sub {
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.social-links {
+    display: flex;
+    gap: 26px;
+    justify-content: flex-start; /* 🔹 Agora alinhado à esquerda */
+    align-items: center;
+    margin-top: 14px;
+    margin-left: 0px; /* 🔹 Distância da borda esquerda */
+}
+
+.social {
+    display: inline-grid;
+    place-items: center;
+    width: 62px;
+    height: 62px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    color: #fff;
+    font-size: 1.45rem;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: transform .24s ease, color .24s ease, box-shadow .24s ease;
+}
+
+.social:hover {
+    transform: translateY(-6px) scale(1.06);
+    color: #ff2b2b;
+    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.12);
+}
+
+/* 🔸 fundos com gradiente sutil de cada rede */
+.social-linkedin {
+    background: linear-gradient(180deg, rgba(10, 102, 194, 0.06), rgba(10, 102, 194, 0.02));
+}
+
+.social-github {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.01));
+}
+
+.social-ig {
+    background: linear-gradient(180deg, rgba(225, 48, 108, 0.05), rgba(225, 48, 108, 0.02));
+}
+
+.social-mail {
+    background: linear-gradient(180deg, rgba(255, 170, 0, 0.04), rgba(255, 170, 0, 0.01));
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    margin-top: 36px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* ---------- Fade-in utility (JS toggles .show) ---------- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .9s ease, transform .9s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Cursor blink (CSS fallback) ---------- */
+.subnome.cursor::after {
+    margin-left: 6px;
+    animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ---------- Responsiveness ---------- */
+@media (max-width: 980px) {
+    .home {
+        flex-direction: column-reverse;
+        padding: 60px 6vw;
+        gap: 28px;
+    }
+
+    .home-left {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .home-right {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-img {
+        width: 60vw;
+        max-width: 360px;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    nav ul {
+        gap: 12px;
+        font-size: 0.95rem;
+        justify-content: center;
+    }
+
+    .social {
+        width: 52px;
+        height: 52px;
+        font-size: 1.25rem;
+    }
+}
